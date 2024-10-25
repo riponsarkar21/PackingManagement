@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+    <div class="ui container">
+        <h2 class="ui header">Production Dashboard</h2>
+        <form class="ui form" id="dashboardForm">
+            <div class="field">
+                <label>From Date:</label>
+                <input type="date" name="from_date" required>
+            </div>
+            <div class="field">
+                <label>To Date:</label>
+                <input type="date" name="to_date" required>
+            </div>
+            <div class="field">
+                <label>Shift:</label>
+                <select name="shift" required>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="A+B">A+B</option>
+                    <option value="B+C">B+C</option>
+                    <option value="A+C">A+C</option>
+                    <option value="A+B+C">A+B+C</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Unit:</label>
+                <select name="unit" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="1+2">1+2</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Brand:</label>
+                <select name="brand" required>
+                    <option value="BM (2 Ply)">BM (2 Ply)</option>
+                    <option value="AM (2 Ply)">AM (2 Ply)</option>
+                    <option value="AM (1 Ply)">AM (1 Ply)</option>
+                    <option value="AM (MES)">AM (MES)</option>
+                    <option value="Gold (2 PLY)">Gold (2 PLY)</option>
+                    <option value="Gold (1 PLY)">Gold (1 PLY)</option>
+                    <option value="Gold (1 Ply MES)">Gold (1 Ply MES)</option>
+                    <option value="AAA">AAA</option>
+                </select>
+            </div>
+            <button type="submit" class="ui button primary">Submit</button>
+        </form>
+
+        <h3 id="productionResult"></h3>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dashboardForm').on('submit', function(event) {
+                event.preventDefault();
+                
+                $.ajax({
+                    url: '/production_report',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#productionResult').text('Production: ' + response.production);
+                    },
+                    error: function(err) {
+                        $('#productionResult').text('Error fetching production data.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

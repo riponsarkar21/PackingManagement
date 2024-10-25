@@ -1,0 +1,110 @@
+{% extends 'index.html' %}
+
+{% block title %}All Reports{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a> -->
+    <div class="text">All Reports</div>
+
+    <ol>
+        <!-- <li class="nav-link-02">
+            <a href="#">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Production Report (Previous Month)</span> 
+            </a>
+        </li> -->
+
+        <!-- <li class="nav-link-02">
+            <form action="/generate_report" method="POST" style="display: inline;">
+                <label for="monthYear" style="margin-right: 10px;">
+                    <i class='bx bxs-file-doc icon'></i>
+                    <span class="text">Production Report:</span>
+                </label>
+                <select name="monthYear" id="monthYear" class="form-select">
+                    <option value="Jan-2024">Jan-2024</option>
+                    <option value="Feb-2024">Feb-2024</option>
+                    <option value="Mar-2024">Mar-2024</option>
+                    <option value="Apr-2024">Apr-2024</option>
+                    <option value="May-2024">May-2024</option>
+                    <option value="Jun-2024">Jun-2024</option>
+                    <option value="Jul-2024">Jul-2024</option>
+                    <option value="Aug-2024">Aug-2024</option>
+                    <option value="Sep-2024">Sep-2024</option>
+                    <option value="Oct-2024">Oct-2024</option>
+                    <option value="Nov-2024">Nov-2024</option>
+                    <option value="Dec-2024">Dec-2024</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Generate Report</button>
+            </form>
+        </li>
+         -->
+
+         <!-- <li class="nav-link-02">
+            <form action="/generate_report" method="POST" style="display: inline;">
+                <label for="monthYear" style="margin-right: 10px;">
+                    <i class='bx bxs-file-doc icon'></i>
+                    <span class="text">Production Report:</span>
+                </label>
+                <select name="monthYear" id="monthYear" class="form-select">
+                    {% for month_year in month_year_list %}
+                        <option value="{{ month_year }}">{{ month_year }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Generate Report</button>
+            </form>
+        </li>
+         -->
+
+         <li class="nav-link-02">
+            <form action="/generate_report" method="POST" style="display: inline;">
+                <label for="monthYear" style="margin-right: 10px;">
+                    <i class='bx bxs-file-doc icon'></i>
+                    <span class="text">Production Report:</span>
+                </label>
+                <select name="monthYear" id="monthYear" class="form-select">
+                    {% for month_year in month_year_list %}
+                        <option value="{{ month_year }}">{{ month_year }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Generate Report</button>
+            </form>
+        </li>
+        
+
+
+
+        <li class="nav-link-02">
+            <a href="{{ url_for('production_report_this_month') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Production Report (This Month)</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('yearly_report') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Yearly Report</span> 
+            </a>
+        </li>
+
+        <li class="nav-link-02">
+            <a href="{{ url_for('bulk_bm') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Bulk Report (BM)</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('bulk_gold') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Bulk Report (Gold)</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('scbl_trawler') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">SCBL Trawler Details</span> 
+            </a>
+        </li>
+    </ol>
+</div>
+{% endblock %}

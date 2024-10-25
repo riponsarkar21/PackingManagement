@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block title %}All Reports{% endblock %}
+
+{% block content %}
+<!-- <div class="container">
+    <a href="/" class="btn btn-primary">Home</a>        
+    <div class="text">Production Management</div>
+    <h1 class="mt-5">Production Management</h1>
+    <a href="/create_batch" class="btn btn-success">Create Batch</a>
+    <a href="/modify_batch" class="btn btn-warning">Modify Batch</a>
+    <a href="/delete_batch" class="btn btn-danger">Delete Batch</a>
+    <a href="/check_report" class="btn btn-info">Check Report</a>
+    <a href="/logout" class="btn btn-secondary">Logout</a>
+</div> -->
+
+<div class="sidebar_02">
+    <div class="container">
+        <!-- <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a> -->
+        <!-- <h1 class="mt-5">All Reports</h1> -->
+        <div class="text">Production</div>
+    <ol>
+        <li class="nav-link-02">
+            <a href="{{ url_for('duty_register') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Create Batch</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('production_kpi') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Modify Batch</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('bursting_and_power') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Delete Batch</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="/production_report">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Production Report</span> 
+            </a>
+        </li>
+        <!-- <li class="nav-link-02"> -->
+        <li class="nav-link-02">
+            <a href="{{ url_for('weight_control') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Check Report</span> 
+            </a>
+        </li>
+    </ol>
+    </div>
+
+</div>
+
+
+{% endblock %}

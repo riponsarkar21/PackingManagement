@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block title %}Maintenance{% endblock %}
+
+{% block content %}
+<div class="sidebar_02">
+    <div class="container">
+        <!-- <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a> -->
+        <!-- <h1 class="mt-5">All Reports</h1> -->
+        <div class="text">Maintenance</div>
+    <ol>
+        <li class="nav-link-02">
+            <a href="#">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Packer Maintenance</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="/production_management">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Unloading Maintenance</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="all_reports">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Weekly Maintenance</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="maintenance_management">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Schedule Maintenance</span> 
+            </a>
+        </li>
+        
+    </ol>
+    </div>
+
+</div>
+{% endblock %}

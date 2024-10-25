@@ -1,0 +1,137 @@
+{% extends 'index.html' %}
+
+{% block title %}All Reports{% endblock %}
+
+{% block content %}
+
+<div class="sidebar_02">
+    <div class="container">
+        <!-- <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a> -->
+        <!-- <h1 class="mt-5">All Reports</h1> -->
+        <div class="text">Manpower</div>
+    <ol>
+        <li class="nav-link-02">
+            <!-- <form action="/open_report" method="POST">
+                <label for="month">
+                    <i class='bx bxs-file-doc icon'></i>
+                    <span class="text">Production Report:</span>
+                </label>
+                <div class="month-selector">
+                    <select name="month" id="month" class="month-select">
+                        {% for month in month_list %}
+                            <option value="{{ month }}">{{ month }}</option>
+                        {% endfor %}
+                    </select>
+            
+                    <select name="year" id="year" class="month-select">
+                        {% for year in year_list %}
+                            <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
+            
+                    <button type="submit">Preview Report</button>
+                    <button type="submit">Open Report</button>
+                </div>
+            </form> -->
+
+            <form action="/open_report" method="POST">
+                <label for="month">
+                    <i class='bx bxs-file-doc icon'></i>
+                    <span class="text">Production<span id="hidden">_</span>Report:</span>
+                </label>
+                <div class="month-selector">
+                    <!-- Month Selection -->
+                    <select name="month" id="month" class="month-select">
+                        {% for month in month_list %}
+                            <option value="{{ month }}">{{ month }}</option>
+                        {% endfor %}
+                    </select>
+            
+                    <!-- Year Selection -->
+                    <select name="year" id="year" class="month-select">
+                        {% for year in year_list %}
+                            <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
+            
+                    <!-- Preview and Open buttons -->
+                    <button type="button" id="preview-report">Preview</button>
+                    <button type="submit">Open</button>
+                </div>
+            </form>
+            
+            
+
+
+        
+            
+
+
+        </li>
+
+        <li class="nav-link-02">
+            <a href="{{ url_for('production_report_this_month') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Production Report (This Month)</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('yearly_report') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Yearly Report</span> 
+            </a>
+        </li>
+
+        <li class="nav-link-02">
+            <a href="{{ url_for('bulk_bm') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Bulk Report (BM)</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('bulk_gold') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Bulk Report (Gold)</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('fob_bulk_light_weight') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">FOB Bulk Light Weight</span> 
+            </a>
+        </li>
+    </ol>
+    </div>
+
+</div>
+
+
+<!-- Detail section where the preview data will be displayed -->
+<div class="detail" id="report-detail">Hello Details</div>
+ 
+<script>
+    document.getElementById("preview-report").addEventListener("click", function() {
+        const month = document.getElementById("month").value;
+        const year = document.getElementById("year").value;
+
+        // Send AJAX request to Flask route for preview
+        fetch("/preview_report", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ month: month, year: year })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display the fetched data in the detail section
+            document.getElementById("report-detail").innerHTML = "Value at B26: " + data.value;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+
+{% endblock %}

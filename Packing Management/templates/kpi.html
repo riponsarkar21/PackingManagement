@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+
+{% block title %}KPI{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a> -->
+    <div class="text">KPI</div>
+    <a href="/create_batch" class="btn btn-success">Plant Operation</a>
+    <a href="/modify_batch" class="btn btn-warning">Weight Control</a>
+    <a href="/delete_batch" class="btn btn-danger">Ensure Brand</a>
+    <a href="/check_report" class="btn btn-info">Wastage Control</a>
+    <a href="/check_report" class="btn btn-info">Equipment Helth</a>
+    <a href="/check_report" class="btn btn-info">Bag Inventory</a>
+    <a href="/check_report" class="btn btn-info">Oracle Maintenance</a>
+    <a href="/check_report" class="btn btn-info">Ensure Safety</a>
+    <a href="/check_report" class="btn btn-info">Innovation</a>
+    <a href="/check_report" class="btn btn-info">Knowledge Sharing</a>
+    <a href="/check_report" class="btn btn-info">Teamwork</a>
+    <a href="/check_report" class="btn btn-info">Interparsonal Skill</a>
+    <a href="/logout" class="btn btn-secondary">Logout</a>
+</div>
+
+<div class="sidebar_02">
+    <div class="container">
+        <!-- <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a> -->
+        <!-- <h1 class="mt-5">All Reports</h1> -->
+        <div class="text">KPI</div>
+    <ol>
+        <li class="nav-link-02">
+            <a href="{{ url_for('duty_register') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Duty Register</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('production_kpi') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Production</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('bursting_and_power') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Bursting and Power Consumption</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('weight_control') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Weighment Control</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('short_excess') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Short Excess of Empty Bag</span> 
+            </a>
+        </li>
+        <li class="nav-link-02">
+            <a href="{{ url_for('defective_equipment') }}">
+                <i class='bx bxs-file-doc icon'></i>
+                <span class="text">Defective Equipment</span> 
+            </a>
+        </li>      
+    </ol>
+    </div>
+
+</div>
+{% endblock %}
